@@ -1171,7 +1171,9 @@
 	)
 	construction_time = 25 SECONDS
 	build_path = /obj/item/mod/construction/shell
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS
+	)
 
 /datum/design/mod_helmet
 	name = "MOD Helmet"
@@ -1181,7 +1183,9 @@
 	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/helmet
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS
+	)
 
 /datum/design/mod_chestplate
 	name = "MOD Chestplate"
@@ -1191,7 +1195,9 @@
 	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/chestplate
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS
+	)
 
 /datum/design/mod_gauntlets
 	name = "MOD Gauntlets"
@@ -1201,7 +1207,9 @@
 	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/gauntlets
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS
+	)
 
 /datum/design/mod_boots
 	name = "MOD Boots"
@@ -1211,7 +1219,9 @@
 	materials = list(/datum/material/iron =SHEET_MATERIAL_AMOUNT * 2.5)
 	construction_time = 10 SECONDS
 	build_path = /obj/item/mod/construction/boots
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS
+	)
 
 /datum/design/mod_plating
 	name = "MOD External Plating"
@@ -1225,7 +1235,9 @@
 	)
 	construction_time = 15 SECONDS
 	build_path = /obj/item/mod/construction/plating
-	category = list("Modsuit Chassis")
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODSUITS_PLATING
+	)
 	research_icon = 'icons/obj/clothing/modsuit/mod_construction.dmi'
 	research_icon_state = "standard-plating"
 
@@ -1315,21 +1327,21 @@
 		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODSUITS_MISC
 	)
 
-//datum/design/modlink_scryer
-	//name = "MODlink Scryer"
-	//desc = "A neck-worn piece of gear that can call with another MODlink-compatible device."
-	//id = "modlink_scryer"
-	//build_type = MECHFAB
-	//materials = list(
-		///datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
-		///datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
-		///datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
-	//)
-	//construction_time = 5 SECONDS
-	//build_path = /obj/item/clothing/neck/link_scryer
-	//category = list(
-	//	RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODSUITS_MISC
-	//)
+/datum/design/modlink_scryer
+	name = "MODlink Scryer"
+	desc = "A neck-worn piece of gear that can call with another MODlink-compatible device."
+	id = "modlink_scryer"
+	build_type = MECHFAB
+	materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 3,
+	)
+	construction_time = 5 SECONDS
+	build_path = /obj/item/clothing/neck/link_scryer
+	category = list(
+		RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODSUITS_MISC
+	)
 
 //MODsuit modules
 
