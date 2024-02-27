@@ -94,3 +94,5 @@
 /// Wrapper for removing clothing based traits
 #define REMOVE_CLOTHING_TRAIT(mob, trait) REMOVE_TRAIT(mob, trait, "[CLOTHING_TRAIT]_[REF(src)]")
 
+///Can be equipped on digitigrade legs.
+#define IGNORE_DIGITIGRADE (1<<18)

@@ -550,7 +550,17 @@
 	result = /obj/item/stack/tape
 	time = 1
 	category = CAT_MISC
-
+/datum/crafting_recipe/mod_core
+	name = "MOD core"
+	result = /obj/item/mod/construction/core
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+	time = 10 SECONDS
+	reqs = list(/obj/item/stack/cable_coil = 5,
+				/obj/item/stack/rods = 2,
+				/obj/item/stack/sheet/glass = 1,
+				/obj/item/organ/heart/ethereal = 1
+				)
+	category = CAT_MISC
 /datum/crafting_recipe/goliath_drapes
 	name = "Goliath Mat"
 	result = /obj/item/surgical_mat/goliath

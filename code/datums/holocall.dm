@@ -346,20 +346,20 @@
 /datum/preset_holoimage/engineer
 	outfit_type = /datum/outfit/job/engineer
 
-/datum/preset_holoimage/engineer/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
+/datum/preset_holoimage/engineer/mod
+	outfit_type = /datum/outfit/job/engineer/gloved/mod
 
 /datum/preset_holoimage/engineer/ce
 	outfit_type = /datum/outfit/job/ce
 
-/datum/preset_holoimage/engineer/ce/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
+/datum/preset_holoimage/engineer/ce/mod
+	outfit_type = /datum/outfit/job/engineer/gloved/mod
 
 /datum/preset_holoimage/engineer/atmos
 	outfit_type = /datum/outfit/job/atmos
 
-/datum/preset_holoimage/engineer/atmos/rig
-	outfit_type = /datum/outfit/job/engineer/gloved/rig
+/datum/preset_holoimage/engineer/atmos/mod
+	outfit_type = /datum/outfit/job/engineer/gloved/mod
 
 /datum/preset_holoimage/rd
 	outfit_type = /datum/outfit/job/rd
