@@ -113,7 +113,12 @@
 
 /atom/movable/screen/alert/MouseExited()
 	closeToolTip(usr)
-
+	
+//MODsuit unique
+/atom/movable/screen/alert/nocore
+	name = "Missing Core"
+	desc = "Unit has no core. No modules available until a core is reinstalled. Robotics may provide assistance."
+	icon_state = "no_cell"
 
 //Gas alerts
 /atom/movable/screen/alert/not_enough_oxy

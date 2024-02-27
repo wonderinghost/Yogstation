@@ -267,3 +267,5 @@
 #define STATION_TRAIT_MOONSCORCH "station_trait_moonscorch"
 
 
+//MODsuit  traits
+#define MOD_TRAIT "mod"

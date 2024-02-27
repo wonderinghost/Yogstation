@@ -50,6 +50,7 @@ GLOBAL_LIST_INIT(maintenance_loot_traditional,list(
 	/obj/item/stack/conveyor/thirty = W_UNCOMMON,
 	/obj/item/stack/marker_beacon/ten = W_UNCOMMON,
 	/obj/item/stack/tape = W_COMMON,
+	/obj/item/mod/construction/broken_core = W_RARE,
 	/obj/item/storage/box/lights/bulbs = W_COMMON,
 	/obj/item/storage/box/lights/mixed = W_COMMON,
 	/obj/item/storage/box/lights/tubes = W_COMMON,
