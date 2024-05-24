@@ -49,11 +49,17 @@ GLOBAL_LIST_EMPTY(pipeimages)
 	var/pipe_state //icon_state as a pipe item
 	var/on = FALSE
 
+	///Whether it can be painted
+	var/paintable = TRUE
+
 	///Can this be quick-toggled on and off using right click or ctrl-click?
 	var/quick_toggle = FALSE
 
 	///The bitflag that's being checked on ventcrawling. Default is to allow ventcrawling and seeing pipes.
 	var/vent_movement = VENTCRAWL_ALLOWED | VENTCRAWL_CAN_SEE
+
+	///Store the smart pipes connections, used for pipe construction
+	var/connection_num = 0
 
 /obj/machinery/atmospherics/LateInitialize()
 	. = ..()
@@ -203,6 +209,14 @@ GLOBAL_LIST_EMPTY(pipeimages)
 	
 	return TRUE
 
+
+/**
+ * check if the piping layer and color are the same on both sides (grey can connect to all colors)
+ * returns TRUE or FALSE if the connection is possible or not
+ * Arguments:
+ * * obj/machinery/atmospherics/target - the machinery we want to connect to
+ * * given_layer - the piping_layer we are connecting to
+ */
 
 /obj/machinery/atmospherics/proc/is_connectable(obj/machinery/atmospherics/target, given_layer)
 	if(isnull(given_layer))

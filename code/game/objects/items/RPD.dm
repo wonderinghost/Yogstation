@@ -11,15 +11,14 @@ RPD
 #define BUILD_MODE 1
 #define WRENCH_MODE 2
 #define DESTROY_MODE 4
-#define PAINT_MODE 8
 
 
 GLOBAL_LIST_INIT(atmos_pipe_recipes, list(
 	"Pipes" = list(
-		new /datum/pipe_info/pipe("Pipe",				/obj/machinery/atmospherics/pipe/simple, TRUE),
-		new /datum/pipe_info/pipe("Manifold",			/obj/machinery/atmospherics/pipe/manifold, TRUE),
-		new /datum/pipe_info/pipe("4-Way Manifold",		/obj/machinery/atmospherics/pipe/manifold4w, TRUE),
+		new /datum/pipe_info/pipe("Pipe", /obj/machinery/atmospherics/pipe/smart, TRUE),
 		new /datum/pipe_info/pipe("Layer Manifold",		/obj/machinery/atmospherics/pipe/layer_manifold, TRUE),
+		new /datum/pipe_info/pipe("Color Adapter", /obj/machinery/atmospherics/pipe/color_adapter, TRUE),
+		new /datum/pipe_info/pipe("Bridge Pipe", /obj/machinery/atmospherics/pipe/bridge_pipe, TRUE),
 		new /datum/pipe_info/pipe("Multi-Deck Adapter", /obj/machinery/atmospherics/pipe/multiz, TRUE),
 	),
 	"Devices" = list(
@@ -301,6 +300,10 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 		ui = new(user, src, "RapidPipeDispenser", name)
 		ui.open()
 
+/obj/item/pipe_dispenser/ui_static_data(mob/user)
+	var/list/data = list("paint_colors" = GLOB.pipe_paint_colors)
+	return data
+
 /obj/item/pipe_dispenser/ui_data(mob/user)
 	var/list/data = list(
 		"category" = category,
@@ -309,7 +312,6 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 		"preview_rows" = recipe.get_preview(p_dir),
 		"categories" = list(),
 		"selected_color" = paint_color,
-		"paint_colors" = GLOB.pipe_paint_colors,
 		"mode" = mode,
 		"locked" = locked,
 	)
@@ -397,7 +399,10 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 	var/static/list/make_pipe_whitelist
 	if(!make_pipe_whitelist)
 		make_pipe_whitelist = typecacheof(list(/obj/structure/lattice, /obj/structure/girder, /obj/item/pipe, /obj/structure/window, /obj/structure/grille, /obj/machinery/atmospherics/pipe))
-	var/can_make_pipe = (isturf(A) || is_type_in_typecache(A, make_pipe_whitelist))
+
+	if(istype(attack_target, /obj/machinery/atmospherics) && mode & BUILD_MODE)
+		attack_target = get_turf(attack_target)
+	var/can_make_pipe = (isturf(attack_target) || is_type_in_typecache(attack_target, make_pipe_whitelist))
 
 	. = TRUE
 
@@ -415,24 +420,6 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 			activate()
 			qdel(A)
 		return
-
-	if (mode & PAINT_MODE)
-		if(istype(A, /obj/machinery/atmospherics/pipe) && !istype(A, /obj/machinery/atmospherics/pipe/layer_manifold))
-			var/obj/machinery/atmospherics/pipe/P = A
-			to_chat(user, span_notice("You start painting \the [P] [paint_color]..."))
-			playsound(get_turf(src), 'sound/machines/click.ogg', 50, 1)
-			if(do_after(user, paint_speed, A))
-				P.paint(GLOB.pipe_paint_colors[paint_color]) //paint the pipe
-				user.visible_message(span_notice("[user] paints \the [P] [paint_color]."),span_notice("You paint \the [P] [paint_color]."))
-			return
-		var/obj/item/pipe/P = A
-		if(istype(P) && findtext("[P.pipe_type]", "/obj/machinery/atmospherics/pipe") && !findtext("[P.pipe_type]", "layer_manifold"))
-			to_chat(user, span_notice("You start painting \the [A] [paint_color]..."))
-			playsound(get_turf(src), 'sound/machines/click.ogg', 50, 1)
-			if(do_after(user, paint_speed, A))
-				A.add_atom_colour(GLOB.pipe_paint_colors[paint_color], FIXED_COLOUR_PRIORITY) //paint the pipe
-				user.visible_message(span_notice("[user] paints \the [A] [paint_color]."),span_notice("You paint \the [A] [paint_color]."))
-			return
 
 	if (mode & BUILD_MODE)
 		if(istype(get_area(user), /area/centcom/reebe/city_of_cogs))
@@ -465,7 +452,7 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 						activate()
 						var/obj/machinery/atmospherics/path = queued_p_type
 						var/pipe_item_type = initial(path.construction_type) || /obj/item/pipe
-						var/obj/item/pipe/P = new pipe_item_type(get_turf(A), queued_p_type, queued_p_dir)
+						var/obj/item/pipe/P = new pipe_item_type(get_turf(attack_target), queued_p_type, queued_p_dir, null, GLOB.pipe_paint_colors[paint_color])
 
 						if(queued_p_flipped && istype(P, /obj/item/pipe/trinary/flippable))
 							var/obj/item/pipe/trinary/flippable/F = P
@@ -474,7 +461,7 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 						P.update()
 						P.add_fingerprint(usr)
 						P.set_piping_layer(piping_layer)
-						if(findtext("[queued_p_type]", "/obj/machinery/atmospherics/pipe") && !findtext("[queued_p_type]", "layer_manifold"))
+						if(ispath(queued_p_type, /obj/machinery/atmospherics) && !ispath(queued_p_type, /obj/machinery/atmospherics/pipe/color_adapter))
 							P.add_atom_colour(GLOB.pipe_paint_colors[paint_color], FIXED_COLOUR_PRIORITY)
 						if(mode&WRENCH_MODE)
 							P.wrench_act(user, src)
@@ -615,5 +602,4 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 
 #undef BUILD_MODE
 #undef DESTROY_MODE
-#undef PAINT_MODE
 #undef WRENCH_MODE
