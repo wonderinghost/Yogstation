@@ -30,7 +30,7 @@
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue
-		var/obj/machinery/atmospherics/node = find_connecting(direction)
+		. += getpipeimage(icon, "cap", direction, pipe_color, piping_layer, TRUE)
 
 		var/image/cap
 		if(node)
