@@ -461,7 +461,8 @@ SUBSYSTEM_DEF(air)
 			build_off.build_pipeline_blocking(AM)
 		CHECK_TICK
 
-/datum/controller/subsystem/air/proc/get_init_dirs(type, dir)
+/datum/controller/subsystem/air/proc/get_init_dirs(type, dir, init_dir)
+
 	if(!pipe_init_dirs_cache[type])
 		pipe_init_dirs_cache[type] = list()
 
@@ -470,7 +471,7 @@ SUBSYSTEM_DEF(air)
 
 	if(!pipe_init_dirs_cache[type]["[init_dir]"]["[dir]"])
 		var/obj/machinery/atmospherics/temp = new type(null, FALSE, dir, init_dir)
-		pipe_init_dirs_cache[type]["[init_dir]"]["[dir]"] = temp.GetInitDirections()
+		pipe_init_dirs_cache[type]["[init_dir]"]["[dir]"] = temp.get_init_directions()
 		qdel(temp)
 
 	return pipe_init_dirs_cache[type]["[init_dir]"]["[dir]"]

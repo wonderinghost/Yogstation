@@ -41,7 +41,7 @@
 	for(var/direction in GLOB.cardinals)
 		if(!(direction & initialize_directions))
 			continue
-		. += getpipeimage(icon, "cap", direction, pipe_color, piping_layer, TRUE)
+		. += get_pipe_image(icon, "cap", direction, pipe_color, piping_layer, TRUE)
 
 
 /obj/machinery/atmospherics/components/trinary/filter/update_icon_nopipes()

@@ -1,40 +1,54 @@
 //Colored pipes, use these for mapping
 
-#define HELPER_PARTIAL(Fulltype, Type, Iconbase, Color) \
-	##Fulltype {						\
-		pipe_color = Color;				\
-		color = Color;					\
-	}									\
+#define HELPER_PARTIAL(Fulltype, Iconbase, Color) \
+	##Fulltype { \
+		pipe_color = Color; \
+		color = Color; \
+	} \
 	##Fulltype/visible { \
 		hide = FALSE; \
 		layer = GAS_PIPE_VISIBLE_LAYER; \
-		FASTDMM_PROP(pipe_group = "atmos-[piping_layer]-"+Type+"-visible");\
-	}									\
-	##Fulltype/visible/layer2 {			\
-		piping_layer = 2;				\
-		icon_state = Iconbase + "-2";	\
-	}									\
-	##Fulltype/visible/layer4 {			\
-		piping_layer = 4;				\
-		icon_state = Iconbase + "-4";	\
-	}									\
-	##Fulltype/hidden {					\
-		hide = TRUE;		\
-		FASTDMM_PROP(pipe_group = "atmos-[piping_layer]-"+Type+"-hidden");\
-	}									\
-	##Fulltype/hidden/layer2 {			\
-		piping_layer = 2;				\
-		icon_state = Iconbase + "-2";	\
-	}									\
-	##Fulltype/hidden/layer4 {			\
-		piping_layer = 4;				\
-		icon_state = Iconbase + "-4";	\
+	} \
+	##Fulltype/visible/layer2 { \
+		piping_layer = 2; \
+		icon_state = Iconbase + "-2"; \
+	} \
+	##Fulltype/visible/layer4 { \
+		piping_layer = 4; \
+		icon_state = Iconbase + "-4"; \
+	} \
+	##Fulltype/visible/layer1 { \
+		piping_layer = 1; \
+		icon_state = Iconbase + "-1"; \
+	} \
+	##Fulltype/visible/layer5 { \
+		piping_layer = 5; \
+		icon_state = Iconbase + "-5"; \
+	} \
+	##Fulltype/hidden { \
+		hide = TRUE; \
+	} \
+	##Fulltype/hidden/layer2 { \
+		piping_layer = 2; \
+		icon_state = Iconbase + "-2"; \
+	} \
+	##Fulltype/hidden/layer4 { \
+		piping_layer = 4; \
+		icon_state = Iconbase + "-4"; \
+	} \
+	##Fulltype/hidden/layer1 { \
+		piping_layer = 1; \
+		icon_state = Iconbase + "-1"; \
+	} \
+	##Fulltype/hidden/layer5 { \
+		piping_layer = 5; \
+		icon_state = Iconbase + "-5"; \
 	}
 
-#define HELPER_PARTIAL_NAMED(Fulltype, Type, Iconbase, Color, Name) \
-	HELPER_PARTIAL(Fulltype, Type, Iconbase, Color)	\
-	##Fulltype {								\
-		name = Name;							\
+#define HELPER_PARTIAL_NAMED(Fulltype, Iconbase, Name, Color) \
+	HELPER_PARTIAL(Fulltype, Iconbase, Color) \
+	##Fulltype { \
+		name = Name; \
 	}
 
 #define HELPER(Type, Color) \

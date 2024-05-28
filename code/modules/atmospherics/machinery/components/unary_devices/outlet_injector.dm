@@ -46,7 +46,7 @@
 /obj/machinery/atmospherics/components/unary/outlet_injector/update_icon_nopipes()
 	cut_overlays()
 	if(showpipe)
-		var/image/cap = getpipeimage(icon, "inje_cap", initialize_directions, pipe_color)
+		var/image/cap = get_pipe_image(icon, "inje_cap", initialize_directions, pipe_color)
 		add_overlay(cap)
 	icon_state = "passive_vent"
 

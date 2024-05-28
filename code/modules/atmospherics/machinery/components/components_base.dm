@@ -261,9 +261,3 @@
 /obj/machinery/atmospherics/components/update_layer()
 	layer = initial(layer) + (piping_layer - PIPING_LAYER_DEFAULT) * PIPING_LAYER_LCHANGE + (GLOB.pipe_colors_ordered[pipe_color] * 0.001)
 
-/obj/machinery/atmospherics/components/paint(paint_color)
-	if(paintable)
-		add_atom_colour(paint_color, FIXED_COLOUR_PRIORITY)
-		pipe_color = paint_color
-		update_node_icon()
-	return paintable
