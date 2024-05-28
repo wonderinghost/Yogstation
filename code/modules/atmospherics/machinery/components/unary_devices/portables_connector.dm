@@ -40,7 +40,7 @@
 	icon_state = "connector"
 	if(showpipe)
 		cut_overlays()
-		var/image/cap = get_pipe_image(icon, "connector_cap", initialize_directions)
+		var/image/cap = get_pipe_image(icon, "connector_cap", initialize_directions, pipe_color)
 		add_overlay(cap)
 
 /obj/machinery/atmospherics/components/unary/portables_connector/process_atmos()

@@ -32,14 +32,6 @@
 			continue
 		. += getpipeimage(icon, "cap", direction, pipe_color, piping_layer, TRUE)
 
-		var/image/cap
-		if(node)
-			cap = get_pipe_image(icon, "cap", direction, node.pipe_color, piping_layer = piping_layer, trinary = TRUE)
-		else
-			cap = get_pipe_image(icon, "cap", direction, piping_layer = piping_layer, trinary = TRUE)
-
-		. += cap
-
 /obj/machinery/atmospherics/components/trinary/mixer/update_icon_nopipes()
 	var/on_state = on && nodes[1] && nodes[2] && nodes[3] && is_operational()
 	icon_state = "mixer_[on_state ? "on" : "off"]-[set_overlay_offset(piping_layer)][flipped ? "_f" : ""]"

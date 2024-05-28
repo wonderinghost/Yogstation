@@ -38,28 +38,38 @@
 	}
 
 #define HELPER(Type, Color) \
-	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/simple/##Type, #Type, "pipe11", Color) 		\
-	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/manifold/##Type, #Type, "manifold", Color)		\
-	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/manifold4w/##Type, #Type, "manifold4w", Color)
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/smart/simple/##Type, "pipe11", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/smart/manifold/##Type, "manifold", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/smart/manifold4w/##Type, "manifold4w", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/bridge_pipe/##Type, "bridge_map", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/layer_manifold/##Type, "manifoldlayer", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/components/binary/pump/off/##Type, "pump_map", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/components/binary/pump/on/##Type, "pump_on_map", Color) \
+	HELPER_PARTIAL(/obj/machinery/atmospherics/pipe/multiz/##Type, "adapter", Color) \
 
 #define HELPER_NAMED(Type, Name, Color) \
-	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/simple/##Type, #Type, "pipe11", Color, Name) 		\
-	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/manifold/##Type, #Type, "manifold", Color, Name)		\
-	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/manifold4w/##Type, #Type, "manifold4w", Color, Name)
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/smart/simple/##Type, "pipe11", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/smart/manifold/##Type, "manifold", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/smart/manifold4w/##Type, "manifold4w", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/bridge_pipe/##Type, "bridge_map", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/layer_manifold/##Type, "manifoldlayer", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/components/binary/pump/off/##Type, "pump_map", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/components/binary/pump/on/##Type, "pump_on_map", Name, Color) \
+	HELPER_PARTIAL_NAMED(/obj/machinery/atmospherics/pipe/multiz/##Type, "adapter", Name, Color) \
 
-HELPER(general, null)
-HELPER(yellow, rgb(255, 198, 0))
-HELPER(cyan, rgb(0, 255, 249))
-HELPER(green, rgb(30, 255, 0))
-HELPER(orange, rgb(255, 129, 25))
-HELPER(purple, rgb(128, 0, 182))
-HELPER(dark, rgb(69, 69, 69))
-HELPER(brown, rgb(178, 100, 56))
-HELPER(violet, rgb(64, 0, 128))
+HELPER(yellow, COLOR_YELLOW)
+HELPER(general, COLOR_VERY_LIGHT_GRAY)
+HELPER(cyan, COLOR_CYAN)
+HELPER(green, COLOR_VIBRANT_LIME)
+HELPER(orange, COLOR_TAN_ORANGE)
+HELPER(purple, COLOR_PURPLE)
+HELPER(dark, COLOR_DARK)
+HELPER(brown, COLOR_BROWN)
+HELPER(violet, COLOR_STRONG_VIOLET)
+HELPER(pink, COLOR_LIGHT_PINK)
 
-HELPER_NAMED(scrubbers, "scrubbers pipe", rgb(255, 0, 0))
-HELPER_NAMED(supply, "air supply pipe", rgb(0, 0, 255))
-HELPER_NAMED(supplymain, "main air supply pipe", rgb(130, 43, 255))
+HELPER_NAMED(scrubbers, "scrubbers pipe", COLOR_RED)
+HELPER_NAMED(supply, "air supply pipe", COLOR_BLUE)
 
 #undef HELPER_NAMED
 #undef HELPER

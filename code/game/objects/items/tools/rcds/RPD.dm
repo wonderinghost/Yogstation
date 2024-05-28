@@ -10,6 +10,7 @@ RPD
 
 #define BUILD_MODE 1
 #define WRENCH_MODE 2
+#define REPROGRAM_MODE 3 
 #define DESTROY_MODE 4
 
 
@@ -219,26 +220,39 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 	materials = list(/datum/material/iron=75000, /datum/material/glass=37500)
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 50)
 	resistance_flags = FIRE_PROOF
+	///Sparks system used when changing device in the UI
 	var/datum/effect_system/spark_spread/spark_system
-	var/working = 0
+	///Direction of the device we are going to spawn, set up in the UI
 	var/p_dir = NORTH
+	///Initial direction of the smart pipe we are going to spawn, set up in the UI
+	var/p_init_dir = ALL_CARDINALS
+	///Is the device of the flipped type?
 	var/p_flipped = FALSE
-	var/paint_color = "grey"
-	var/atmos_build_speed = 2 DECISECONDS
-	var/disposal_build_speed = 2 DECISECONDS
-	var/transit_build_speed = 2 DECISECONDS
-	var/plumbing_build_speed = 2 DECISECONDS
-	var/destroy_speed = 2 DECISECONDS
-	var/paint_speed = 2 DECISECONDS
+	///Color of the device we are going to spawn
+	var/paint_color = "green"
+	///Speed of building atmos devices
+	var/atmos_build_speed = 0.4 SECONDS
+	///Speed of building disposal devices
+	var/disposal_build_speed = 0.5 SECONDS
+	///Speed of building transit devices
+	var/transit_build_speed = 0.5 SECONDS
+	///Category currently active (Atmos, disposal, transit)
 	var/category = ATMOS_CATEGORY
+	///All pipe layers we are going to spawn the atmos devices in
 	var/piping_layer = PIPING_LAYER_DEFAULT
+	///Layer for disposal ducts
 	var/ducting_layer = DUCT_LAYER_DEFAULT
+	///Stores the current device to spawn
 	var/datum/pipe_info/recipe
+	///Stores the first atmos device
 	var/static/datum/pipe_info/first_atmos
+	///Stores the first disposal device
 	var/static/datum/pipe_info/first_disposal
+	///Stores the first transit device
 	var/static/datum/pipe_info/first_transit
-	var/static/datum/pipe_info/first_plumbing
-	var/mode = BUILD_MODE | PAINT_MODE | DESTROY_MODE | WRENCH_MODE
+	///The modes that are allowed for the RPD
+	var/mode = BUILD_MODE | DESTROY_MODE | WRENCH_MODE | REPROGRAM_MODE
+	
 	var/locked = FALSE //wheter we can change categories. Useful for the plumber
 	/// The owner of this RCD. It can be a mech or a player.
 	var/owner
@@ -376,15 +390,19 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 			playeffect = FALSE
 		if("mode")
 			var/n = text2num(params["mode"])
-			if(mode & n)
-				mode &= ~n
-			else
-				mode |= n
-
+			mode ^= n
+		if("init_dir_setting")
+			var/target_dir = p_init_dir ^ text2dir(params["dir_flag"])
+			// Refuse to create a smart pipe that can only connect in one direction (it would act weirdly and lack an icon)
+			if (ISNOTSTUB(target_dir))
+				p_init_dir = target_dir
+		if("init_reset")
+			p_init_dir = ALL_CARDINALS
 	if(playeffect)
 		spark_system.start()
-		playsound(get_turf(src), 'sound/effects/pop.ogg', 50, 0)
+		playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
 	return TRUE
+
 
 /obj/item/pipe_dispenser/pre_attack(atom/A, mob/user)
 	if(!user.IsAdvancedToolUser() || istype(A, /turf/open/space/transit))
@@ -420,6 +438,42 @@ GLOBAL_LIST_INIT(fluid_duct_recipes, list(
 			activate()
 			qdel(A)
 		return
+
+	if(mode & REPROGRAM_MODE)
+		var/obj/machinery/atmospherics/pipe/smart/S = attack_target
+		if(istype(S))
+			if (S.dir == ALL_CARDINALS)
+				to_chat(user, span_warning("\The [S] has no unconnected directions!"))
+				return
+			var/target_init_dir = S.GetInitDirections()
+			if (target_init_dir == p_init_dir)
+				to_chat(user, span_warning("\The [S] is already in this configuration!"))
+				return
+			// Check for differences in unconnected directions
+			var/target_differences = (p_init_dir ^ target_init_dir) & ~S.connections
+			if (target_differences)
+				to_chat(user, span_notice("You start reprogramming \the [S]..."))
+				playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
+				if(do_after(user, reprogram_speed, target = S))
+					// Double check to make sure that nothing has changed. If anything we were about to change is now connected, abort
+					if (target_differences & S.connections)
+						to_chat(user, span_warning("\The [src]'s screen flashes a warning: Can't configure a pipe in a currently connected direction."))
+						return
+					var/new_dir = (S.GetInitDirections() & ~target_differences) | target_differences
+					// Don't make a smart pipe with only one connection
+					if (ISSTUB(new_dir))
+						to_chat(user, span_warning("\The [src]'s screen flashes a warning: Can't configure a pipe to only connect in one direction."))
+						return
+					S.SetInitDirections(new_dir)
+					S.update_pipe_icon()
+					user.visible_message(span_notice("[user] reprograms the \the [S]."),span_notice("You reprogram \the [S]."))
+				return
+			to_chat(user, span_warning("\The [S] is already in this configuration for its unconnected directions!"))
+			return
+		var/obj/item/pipe/quaternary/I = attack_target
+		if(istype(I) && ispath(I.pipe_type, /obj/machinery/atmospherics/pipe/smart))
+			I.p_init_dir = p_init_dir
+			I.update()
 
 	if (mode & BUILD_MODE)
 		if(istype(get_area(user), /area/centcom/reebe/city_of_cogs))
