@@ -1,0 +1,166 @@
+"aa" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden,/turf/open/floor/engine,/area/space)
+"aB" = (/obj/structure/cable/yellow{icon_state = "1-4"},/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,/turf/open/floor/plasteel,/area/space)
+"aI" = (/obj/effect/turf_decal/stripes/corner{dir = 1},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 9},/turf/open/floor/engine,/area/space)
+"bt" = (/obj/effect/turf_decal/stripes/line{dir = 4},/obj/machinery/atmospherics/pipe/simple/brown/visible{dir = 8},/turf/open/floor/engine,/area/space)
+"cf" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple,/turf/open/space/basic,/area/space)
+"cz" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"cJ" = (/obj/effect/turf_decal/stripes/corner,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 8},/turf/open/floor/engine,/area/space)
+"cO" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/atmospherics/pipe/manifold/cyan/visible{dir = 4},/turf/open/floor/engine,/area/space)
+"eu" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 10},/obj/machinery/atmospherics/pipe/simple/cyan/visible{dir = 5},/turf/open/floor/engine,/area/space)
+"ew" = (/obj/machinery/atmospherics/pipe/simple/brown/visible,/obj/machinery/computer/atmos_control/tank/toxin_tank{frequency = 1445},/turf/open/floor/plasteel,/area/space)
+"eW" = (/obj/machinery/air_sensor/atmos/toxin_tank{frequency = 1445},/turf/open/floor/engine/plasma,/area/space)
+"gn" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 5},/turf/open/space/basic,/area/space)
+"gr" = (/obj/structure/cable/yellow{icon_state = "0-2"},/obj/machinery/atmospherics/components/trinary/nuclear_reactor/preset,/turf/open/floor/engine,/area/space)
+"gB" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 10},/turf/open/floor/engine,/area/space)
+"hm" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 10},/turf/open/floor/engine,/area/space)
+"iB" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 9},/turf/open/floor/plasteel,/area/space)
+"iD" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"iO" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/obj/structure/cable/yellow{icon_state = "1-2"},/turf/open/floor/engine,/area/space)
+"ja" = (/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 10},/turf/open/floor/engine,/area/space)
+"jD" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"jN" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"kY" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 5},/turf/open/floor/plasteel,/area/space)
+"mg" = (/obj/effect/spawner/structure/window/plasma/reinforced,/obj/machinery/atmospherics/pipe/simple/brown/visible,/turf/open/floor/plating,/area/space)
+"mG" = (/obj/effect/turf_decal/stripes/corner{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"mO" = (/obj/machinery/atmospherics/components/trinary/mixer/t_mixer{dir = 4},/turf/open/floor/plasteel,/area/space)
+"nf" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{dir = 8},/turf/open/floor/plasteel,/area/space)
+"ni" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/turf/open/floor/plasteel,/area/space)
+"np" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/open/floor/engine,/area/space)
+"nS" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 9},/turf/open/floor/engine,/area/space)
+"oc" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/plasteel,/area/space)
+"oo" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 4},/turf/open/floor/engine,/area/space)
+"oR" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 5},/turf/open/floor/engine,/area/space)
+"qe" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/turf/open/floor/plasteel,/area/space)
+"qX" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 6},/turf/open/space/basic,/area/space)
+"ri" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 9},/turf/open/space/basic,/area/space)
+"rT" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 5},/turf/open/floor/engine,/area/space)
+"rY" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/turf/open/floor/plasteel,/area/space)
+"sl" = (/obj/machinery/atmospherics/pipe/layer_manifold/visible,/obj/machinery/door/airlock/external,/obj/effect/mapping_helpers/airlock/cyclelink_helper,/turf/open/floor/plating,/area/space)
+"sz" = (/obj/machinery/atmospherics/pipe/simple/cyan/visible,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 8},/turf/open/floor/engine,/area/space)
+"ty" = (/obj/machinery/atmospherics/pipe/simple/brown/visible{dir = 8},/obj/item/pipe_meter,/turf/open/floor/plasteel,/area/space)
+"tz" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/atmospherics/pipe/manifold/cyan/hidden{dir = 1},/turf/open/floor/engine,/area/space)
+"tG" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/turf/open/floor/plasteel,/area/space)
+"uq" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 9},/turf/open/floor/engine,/area/space)
+"ve" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 5},/turf/open/floor/engine,/area/space)
+"vr" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/door/airlock/external,/obj/effect/mapping_helpers/airlock/cyclelink_helper{dir = 8},/turf/open/floor/plating,/area/space)
+"wf" = (/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"wu" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{dir = 1},/turf/open/floor/plasteel,/area/space)
+"wO" = (/turf/template_noop,/area/space)
+"wU" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/turf/open/floor/plasteel,/area/space)
+"xB" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 10},/turf/open/space/basic,/area/space)
+"yO" = (/obj/effect/spawner/structure/window/plasma/reinforced,/turf/open/floor/plating,/area/space)
+"yP" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/structure/cable/yellow{icon_state = "1-2"},/turf/open/floor/engine,/area/space)
+"yX" = (/obj/item/pipe_meter,/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 8},/turf/closed/wall/r_wall,/area/space)
+"zn" = (/obj/machinery/atmospherics/pipe/manifold/brown/visible{dir = 1},/turf/open/floor/plasteel,/area/space)
+"zC" = (/obj/machinery/atmospherics/pipe/manifold/cyan/hidden{dir = 8},/turf/open/floor/engine,/area/space)
+"zR" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 8},/turf/open/space/basic,/area/space)
+"Aa" = (/turf/open/floor/plasteel,/area/space)
+"Au" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 10},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 10},/turf/open/floor/plasteel,/area/space)
+"AK" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/atmospherics/pipe/simple/brown/visible{dir = 8},/turf/open/floor/engine,/area/space)
+"AU" = (/turf/open/space/basic,/area/space)
+"BL" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/machinery/atmospherics/pipe/simple/cyan/visible{dir = 10},/turf/open/floor/engine,/area/space)
+"Cg" = (/obj/effect/turf_decal/stripes/line{dir = 8},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"Dk" = (/obj/machinery/atmospherics/pipe/simple/cyan/visible,/turf/open/floor/plasteel,/area/space)
+"Dq" = (/obj/item/pipe_meter,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/closed/wall/r_wall,/area/space)
+"DB" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/turf/open/floor/plasteel,/area/space)
+"DY" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/atmospherics/pipe/simple/cyan/hidden,/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 4},/turf/open/floor/engine,/area/space)
+"Eb" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/obj/structure/cable/yellow{icon_state = "1-2"},/turf/open/floor/plasteel,/area/space)
+"El" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{dir = 4},/turf/open/floor/plasteel,/area/space)
+"Ev" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/structure/cable/yellow{icon_state = "2-8"},/turf/open/floor/plasteel,/area/space)
+"Ey" = (/obj/effect/turf_decal/stripes/corner{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 4},/turf/open/floor/engine,/area/space)
+"EX" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only,/obj/machinery/door/firedoor/border_only{dir = 1},/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 9},/turf/open/floor/engine,/area/space)
+"Fk" = (/obj/item/pipe_meter,/obj/machinery/atmospherics/pipe/simple/cyan/hidden,/turf/closed/wall/r_wall,/area/space)
+"FG" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/atmospherics/components/trinary/filter,/turf/open/floor/plasteel,/area/space)
+"FK" = (/obj/machinery/atmospherics/pipe/simple/brown/visible{dir = 8},/obj/machinery/atmospherics/pipe/simple/cyan/hidden,/turf/open/floor/engine,/area/space)
+"FP" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/open/floor/engine,/area/space)
+"Go" = (/obj/machinery/atmospherics/pipe/simple/brown/visible{dir = 8},/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,/turf/open/floor/engine,/area/space)
+"GA" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 8},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible,/turf/open/floor/plasteel,/area/space)
+"GJ" = (/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer2,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/advanced_airlock_controller{pixel_x = 25},/turf/open/floor/plating,/area/space)
+"GO" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/turf/open/floor/plasteel,/area/space)
+"Ha" = (/obj/machinery/door/poddoor{id = "reactorvent"; name = "Reactor Vent"},/turf/open/space/basic,/area/space)
+"Hk" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 10},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 6},/obj/structure/cable/yellow{icon_state = "1-2"},/obj/effect/turf_decal/stripes/line{dir = 1},/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible,/turf/open/floor/engine,/area/space)
+"HA" = (/obj/machinery/atmospherics/pipe/layer_manifold,/obj/effect/spawner/structure/window/plasma/reinforced,/turf/open/floor/plating,/area/space)
+"HX" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{dir = 4},/turf/open/floor/plasteel,/area/space)
+"HY" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 9},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 9},/turf/open/floor/plating,/area/space)
+"Ix" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,/turf/open/floor/engine,/area/space)
+"IK" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 5},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 5},/turf/open/floor/plating,/area/space)
+"IU" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 6},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 6},/turf/open/floor/plasteel,/area/space)
+"IV" = (/turf/closed/wall/r_wall,/area/space)
+"Ka" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{dir = 1},/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{dir = 1},/turf/open/floor/plasteel,/area/space)
+"KD" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 5},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 5},/turf/open/floor/plasteel,/area/space)
+"KT" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer2,/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,/turf/open/floor/plasteel,/area/space)
+"Ll" = (/obj/machinery/atmospherics/pipe/heat_exchanging/junction{dir = 1},/turf/open/space/basic,/area/space)
+"LK" = (/obj/machinery/atmospherics/components/unary/vent_pump/on{external_pressure_bound = 0; frequency = 1445; id_tag = "tox_out"; initialize_directions = 1; internal_pressure_bound = 4000; pressure_checks = 2; pressure_resistance = 10; pump_direction = 0},/turf/open/floor/engine/plasma,/area/space)
+"Os" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,/obj/machinery/atmospherics/pipe/manifold/brown/visible,/turf/open/floor/plasteel,/area/space)
+"Ox" = (/obj/machinery/atmospherics/components/unary/vent_pump/on{dir = 1},/turf/open/floor/engine/o2,/area/space)
+"OQ" = (/obj/machinery/atmospherics/pipe/simple/brown/visible,/obj/machinery/computer/atmos_control/tank/oxygen_tank{dir = 1},/turf/open/floor/plasteel,/area/space)
+"PC" = (/obj/effect/turf_decal/stripes/line,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,/turf/open/floor/engine,/area/space)
+"PR" = (/obj/machinery/atmospherics/components/binary/pump{dir = 4; name = "Moderators to Reactor"},/turf/open/floor/plasteel,/area/space)
+"Qr" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 4},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 4},/obj/machinery/door/airlock/external,/obj/effect/mapping_helpers/airlock/cyclelink_helper{dir = 4},/turf/open/floor/plating,/area/space)
+"Qz" = (/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 9},/turf/open/floor/engine,/area/space)
+"QU" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{dir = 4},/turf/open/floor/plasteel,/area/space)
+"Ro" = (/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer2,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/obj/machinery/advanced_airlock_controller{pixel_x = -27},/turf/open/floor/plating,/area/space)
+"RH" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 4},/turf/open/floor/engine,/area/space)
+"Sd" = (/obj/effect/spawner/structure/window/plasma/reinforced,/area/space)
+"SF" = (/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/turf/open/floor/engine,/area/space)
+"SN" = (/obj/machinery/atmospherics/components/binary/pump{dir = 1},/turf/open/floor/plasteel,/area/space)
+"TF" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 10},/obj/machinery/atmospherics/pipe/simple/scrubbers/visible{dir = 5},/turf/open/floor/engine,/area/space)
+"TP" = (/obj/machinery/atmospherics/pipe/simple/cyan/hidden{dir = 6},/turf/open/floor/engine,/area/space)
+"Vr" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/engine,/area/space)
+"VL" = (/obj/item/pipe_meter,/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 8},/turf/closed/wall/r_wall,/area/space)
+"Wg" = (/obj/machinery/air_sensor/atmos/oxygen_tank{frequency = 1445},/turf/open/floor/engine/o2,/area/space)
+"Wi" = (/obj/machinery/atmospherics/pipe/simple/cyan/visible,/turf/open/floor/engine,/area/space)
+"Wj" = (/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{dir = 5},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 5},/turf/open/floor/engine,/area/space)
+"Wt" = (/obj/structure/cable/yellow{icon_state = "1-2"},/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{dir = 1},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/turf/open/floor/plasteel,/area/space)
+"WV" = (/obj/machinery/atmospherics/components/binary/valve/digital/on{dir = 4; name = "Cooling Loop Bypass"},/turf/open/floor/plasteel,/area/space)
+"Xm" = (/obj/machinery/atmospherics/pipe/heat_exchanging/simple{dir = 4},/turf/open/space/basic,/area/space)
+"XI" = (/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,/turf/open/floor/plasteel,/area/space)
+"XY" = (/obj/structure/sign/warning/radiation,/turf/closed/wall/r_wall,/area/space)
+"Ya" = (/obj/machinery/atmospherics/pipe/manifold/scrubbers/visible{dir = 8},/turf/open/floor/plasteel,/area/space)
+"Yt" = (/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{dir = 8},/turf/open/floor/plasteel,/area/space)
+"YC" = (/turf/open/floor/engine,/area/space)
+"ZR" = (/obj/machinery/atmospherics/components/trinary/filter,/turf/open/floor/plasteel,/area/space)
+"ZZ" = (/obj/machinery/door/poddoor/shutters/preopen{id = "reactorcore"; name = "Reactor Core Shutters"},/obj/machinery/door/firedoor/border_only{dir = 4},/obj/machinery/door/firedoor/border_only{dir = 8},/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{dir = 6},/turf/open/floor/engine,/area/space)
+
+(1,1,1) = {"
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUqXxBqXxBqXxBqXxBqXxBAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUcfcfcfcfcfcfcfcfcfcfAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUcfcfcfcfcfcfcfcfcfcfAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUcfcfcfcfcfcfcfcfcfcfAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUcfcfcfcfcfcfcfcfcfcfAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUcfgnrignrignrignricfAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUgnXmXmXmxBAUqXzRzRriAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUAUAUAUAULlAULlAUAUAUAUAUAUAUAUAUAUAU
+AUAUAUAUAUAUAUIVyOIVIVHAIVHAIVIVyOIVAUAUAUAUAUAUAU
+AUAUAUAUAUAUIVIVAaAaAaYaWVQUAaAaAaIVIVAUAUAUAUAUAU
+AUAUAUAUAUIVIVAaAaAawuZRAaSNAaAaAaAaIVIVAUAUAUAUAU
+AUAUAUAUIVIVAaIUDBDBkYFGDBGADBDBDBAuAaIVIVAUAUAUAU
+AUAUIVIVIVAaIUiBAaAaAaDkAaocAaAaAaKDAuAaIVIVAUAUAU
+AUAUIVeWIVAaqeAaIVXYVLeuBLiDyXXYIVAaqeAaAaIVAUAUAU
+AUAUIVLKIVElGOAaXYHaYCveszTFgBHaXYAaXIYtAaIVIVAUAU
+AUAUIVmgIVAaqeAaFkTPcJtzcOPCmGYCDqAaqeAaAaAaIVAUAU
+AUAUIVewAaAaqeAaoRnSVraaWiYCczRHQzAaqeAaAaAaSdAUAU
+AUAUIVmOtyPROsznAKGobtFKgrFPjDIxSFAaqeAaAaAaSdAUAU
+AUAUIVOQAaAaqeAaZZhmVrzCjNnpCgoojaAaqeAaAaAaSdAUAU
+AUAUIVmgIVAaqeAaDqWjEyDYHkwfaIuqFkAaqeAaAaAaIVAUAU
+AUAUIVOxIVHXrYAaXYHaYCaaiOFPYCHaXYAatGnfAaAaIVAUAU
+AUAUIVWgIVAaqeAaIVXYyXEXyPrTVLXYIVAaqeAaAaIVIVAUAU
+AUAUIVIVIVAaKDAuAaAaAaAaEbAaAaAaAaIUiBAaIVIVAUAUAU
+AUAUAUAUIVIVAaKDDBDBDBniKTDBDBDBDBiBAaIVIVAUAUAUAU
+AUAUAUAUAUIVIVAaAaAaAaAaWtAaAaAaAaAaIVIVAUAUAUAUAU
+AUAUAUAUAUAUIVIVAaIVIVAaWtAaIVIVAaIVIVAUAUAUAUAUAU
+AUAUAUAUIVslIVAaAaAaAaAaWtAaAaAaAaAaIVslIVAUAUAUAU
+AUAUAUAUIVRoIVAaAaAaAaAaWtAaAaAaAaAaIVGJIVAUAUAUAU
+wOwOwOwOIVIKvrDBKawUwUwUaBEvwUwUwUwUQrHYIVwOwOwOwO
+"}
