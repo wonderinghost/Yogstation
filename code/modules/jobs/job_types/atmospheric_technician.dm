@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/job/atmos
 
 	added_access = list(ACCESS_ENGINE_EQUIP, ACCESS_TECH_STORAGE)
-	base_access = list(ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_MECH_ENGINE, ACCESS_MINERAL_STOREROOM, ACCESS_ENGINE, ACCESS_EXTERNAL_AIRLOCKS)
+	base_access = list(ACCESS_ENGINEERING, ACCESS_ATMOSPHERICS, ACCESS_MAINT_TUNNELS, ACCESS_CONSTRUCTION, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_MECH_ENGINE)
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_ENG
 	display_order = JOB_DISPLAY_ORDER_ATMOSPHERIC_TECHNICIAN
@@ -41,13 +41,13 @@
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
 
-	pda_type = /obj/item/modular_computer/tablet/pda/preset/basic/atmos
+	pda_type = /obj/item/modular_computer/tablet/pda/preset/atmos
 
 	belt = /obj/item/storage/belt/utility/atmostech
 	ears = /obj/item/radio/headset/headset_eng
 	digitigrade_shoes = /obj/item/clothing/shoes/xeno_wraps/engineering
-	uniform = /obj/item/clothing/under/rank/atmospheric_technician
-	uniform_skirt = /obj/item/clothing/under/rank/atmospheric_technician/skirt
+	uniform = /obj/item/clothing/under/rank/engineering/atmospheric_technician
+	uniform_skirt = /obj/item/clothing/under/rank/engineering/atmospheric_technician/skirt
 	r_pocket = /obj/item/analyzer
 
 	backpack = /obj/item/storage/backpack/industrial

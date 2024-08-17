@@ -324,6 +324,7 @@
 /obj/item/bodypart/proc/attach_limb(mob/living/carbon/C, special)
 	moveToNullspace()
 	set_owner(C)
+	SEND_SIGNAL(C, COMSIG_CARBON_ATTACH_LIMB, src, special)
 	C.bodyparts += src
 	if(held_index)
 		if(held_index > C.hand_bodyparts.len)
@@ -424,8 +425,6 @@
 		limb_list -= excluded_limbs
 	for(var/Z in limb_list)
 		. += regenerate_limb(Z, noheal)
-	if(("legs" in dna?.species?.mutant_bodyparts) && dna.features["legs"] == "Digitigrade Legs")
-		Digitigrade_Leg_Swap(FALSE)
 
 /mob/living/proc/regenerate_limb(limb_zone, noheal)
 	return

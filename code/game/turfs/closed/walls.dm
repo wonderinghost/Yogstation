@@ -32,6 +32,7 @@
 	var/hardness = 30 
 	var/slicing_duration = 200  //default time taken to slice the wall
 	var/sheet_type = /obj/item/stack/sheet/metal
+	var/scrap_type = /obj/item/stack/scrap/plating
 	var/sheet_amount = 2
 	var/girder_type = /obj/structure/girder
 	var/smash_flags = ENVIRONMENT_SMASH_WALLS|ENVIRONMENT_SMASH_RWALLS
@@ -71,8 +72,8 @@
 		add_dent(WALL_DENT_HIT)
 
 /turf/closed/wall/run_atom_armor(damage_amount, damage_type, damage_flag, attack_dir, armour_penetration)
-	if(damage_amount < damage_deflection && (damage_type in list(MELEE, BULLET, LASER, ENERGY)))
-		return 0 // absolutely no bypassing damage deflection by using projectiles
+	if(damage_amount < damage_deflection && (damage_flag in list(MELEE, BULLET, LASER, ENERGY)))
+		return 0 // absolutely no bypassing damage deflection by using projectiles FOR REAL THIS TIME
 	return ..()
 
 /turf/closed/wall/atom_destruction(damage_flag)
@@ -98,6 +99,8 @@
 	return TRUE
 
 /turf/closed/wall/proc/dismantle_wall(devastated = FALSE, explode = FALSE)
+	if(resistance_flags & INDESTRUCTIBLE)
+		return
 	if(devastated)
 		devastate_wall()
 	else
@@ -117,15 +120,25 @@
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /turf/closed/wall/proc/break_wall()
-	new sheet_type(src, sheet_amount)
+	var/area/shipbreak/A = get_area(src)
+	if(istype(A)) //if we are actually in the shipbreaking zone...
+		new scrap_type(src, sheet_amount)
+	else
+		new sheet_type(src, sheet_amount)
 	return new girder_type(src)
 
 /turf/closed/wall/proc/devastate_wall()
-	new sheet_type(src, sheet_amount)
+	var/area/shipbreak/A = get_area(src)
+	if(istype(A))
+		new scrap_type(src, sheet_amount)
+	else
+		new sheet_type(src, sheet_amount)
 	if(girder_type)
 		new /obj/item/stack/sheet/metal(src)
 
 /turf/closed/wall/ex_act(severity, target)
+	if(resistance_flags & INDESTRUCTIBLE)
+		return
 	if(target == src)
 		dismantle_wall(TRUE, TRUE)
 		return
@@ -169,7 +182,7 @@
 
 /turf/closed/wall/attack_hulk(mob/user, does_attack_animation = 0)
 	..(user, 1)
-	user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ), forced = "hulk")
+	user.say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ), forced = "hulk")
 	take_damage(400, BRUTE, MELEE, FALSE)
 	playsound(src, 'sound/effects/bang.ogg', 50, 1)
 	to_chat(user, span_notice("You punch the wall."))
@@ -199,13 +212,14 @@
 	var/turf/T = user.loc	//get user's location for delay checks
 
 	//the istype cascade has been spread among various procs for easy overriding
-	if(try_clean(attacking_item, user, T) || try_wallmount(attacking_item, user, T) || try_decon(attacking_item, user, T))
+	var/list/modifiers = params2list(params)
+	if(try_decon(attacking_item, user, T, modifiers) || try_clean(attacking_item, user, T) || try_wallmount(attacking_item, user, T))
 		return
 
-	return ..() || (attacking_item.attack_atom(src, user))
+	return ..() || (attacking_item.attack_atom(src, user, params))
 
-/turf/closed/wall/proc/try_clean(obj/item/W, mob/user, turf/T)
-	if(user.a_intent == INTENT_HARM)
+/turf/closed/wall/proc/try_clean(obj/item/W, mob/living/user, turf/T, modifiers)
+	if(user.combat_mode)
 		return FALSE
 
 	if(W.tool_behaviour == TOOL_WELDER)
@@ -245,7 +259,10 @@
 
 	return FALSE
 
-/turf/closed/wall/proc/try_decon(obj/item/I, mob/user, turf/T)
+/turf/closed/wall/proc/try_decon(obj/item/I, mob/user, turf/T, modifiers)
+	if(!(modifiers && modifiers[RIGHT_CLICK]))
+		return FALSE
+
 	if(I.tool_behaviour == TOOL_WELDER)
 		if(!I.tool_start_check(user, amount=0))
 			return FALSE

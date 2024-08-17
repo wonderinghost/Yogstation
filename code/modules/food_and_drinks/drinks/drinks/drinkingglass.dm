@@ -24,7 +24,7 @@
 		if(R.glass_icon_state)
 			icon_state = R.glass_icon_state
 		else
-			var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "glassoverlay")
+			var/mutable_appearance/reagent_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "drinking_glass0")
 			icon_state = "glass_empty"
 			reagent_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 			add_overlay(reagent_overlay)
@@ -67,7 +67,7 @@
 			icon_state = largest_reagent.shot_glass_icon_state
 		else
 			icon_state = "shotglassclear"
-			var/mutable_appearance/shot_overlay = mutable_appearance(icon, "shotglassoverlay")
+			var/mutable_appearance/shot_overlay = mutable_appearance('icons/obj/reagentfillings.dmi', "shot_glass0")
 			shot_overlay.color = mix_color_from_reagents(reagents.reagent_list)
 			add_overlay(shot_overlay)
 
@@ -92,7 +92,7 @@
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/filled/nuka_cola
 	name = "Nuka Cola"
-	list_reagents = list(/datum/reagent/consumable/nuka_cola = 50)
+	list_reagents = list(/datum/reagent/consumable/energy_drink/nuka_cola = 50)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg)) //breaking eggs
@@ -108,22 +108,22 @@
 	else
 		..()
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/attack(obj/target, mob/user)
-	if(user.a_intent == INTENT_HARM && ismob(target) && target.reagents && reagents.total_volume)
+/obj/item/reagent_containers/food/drinks/drinkingglass/attack(obj/target, mob/living/user)
+	if(user.combat_mode && ismob(target) && target.reagents && reagents.total_volume)
 		target.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
 						span_userdanger("[user] splashes the contents of [src] onto [target]!"))
 		log_combat(user, target, "splashed", src)
 		reagents.reaction(target, TOUCH)
 		reagents.clear_reagents()
 		return
-	..()
+	return ..()
 
-/obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(obj/target, mob/user, proximity)
+/obj/item/reagent_containers/food/drinks/drinkingglass/afterattack(obj/target, mob/living/user, proximity)
 	. = ..()
 	if((!proximity) || !check_allowed_items(target,target_self=1))
 		return
 
-	else if(reagents.total_volume && user.a_intent == INTENT_HARM)
+	else if(reagents.total_volume && user.combat_mode)
 		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
 							span_notice("You splash the contents of [src] onto [target]."))
 		reagents.reaction(target, TOUCH)

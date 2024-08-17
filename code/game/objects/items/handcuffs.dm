@@ -65,16 +65,6 @@
 
 			playsound(loc, cuffsound, 30, 1, -2)
 
-			// Yogs start: Prevents darkspawn from cheesing their bead sleep to cuff and kill
-			if(is_darkspawn_or_veil(user) && C.has_status_effect(STATUS_EFFECT_BROKEN_WILL) && (C.get_num_arms(FALSE) >= 2 || C.get_arm_ignore()))
-				to_chat(user, span_boldannounce("Restraining [C] will wake them up! Are you sure you want to do this?"))
-				C.visible_message(span_warning("[C] jerks in their sleep as they are restrained!"))
-				to_chat(C, span_boldannounce("Someone handles your arms roughly, pulling you towards wakefulness!"))
-				if(do_after(user, 1.5 SECONDS, C, progress = FALSE)) // No progress bar
-					C.remove_status_effect(STATUS_EFFECT_BROKEN_WILL)
-					C.SetUnconscious(0)
-			// Yogs end
-
 			if(do_after(user, 3 SECONDS, C) && (C.get_num_arms(FALSE) >= 2 || C.get_arm_ignore()))
 				if(iscyborg(user))
 					apply_cuffs(C, user, TRUE)
@@ -332,18 +322,23 @@
 		return
 
 	var/mob/living/victim = target
+	//don't close the trap if they're as small as a mouse
+	if(victim.mob_size <= MOB_SIZE_TINY)
+		return
+	if(!ignore_movetypes && (victim.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
+		return
+
+	if(!anchored)
+		visible_message(span_notice("[src] flops about uselessly as it gets triggered without being properly anchored to the ground."))
+		close_trap()
+		return
+
 	if(istype(victim.buckled, /obj/vehicle))
 		var/obj/vehicle/ridden_vehicle = victim.buckled
 		if(!ridden_vehicle.are_legs_exposed) //close the trap without injuring/trapping the rider if their legs are inside the vehicle at all times.
 			close_trap()
 			ridden_vehicle.visible_message(span_danger("[ridden_vehicle] triggers \the [src]."))
 			return
-
-	//don't close the trap if they're as small as a mouse
-	if(victim.mob_size <= MOB_SIZE_TINY)
-		return
-	if(!ignore_movetypes && (victim.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
-		return
 
 	close_trap()
 	if(ignore_movetypes)
@@ -427,6 +422,7 @@
 /obj/item/restraints/legcuffs/bola
 	name = "bola"
 	desc = "A restraining device designed to be thrown at the target. Upon connecting with said target, it will wrap around their legs, making it difficult for them to move quickly."
+	icon = 'icons/obj/weapons/thrown.dmi'
 	icon_state = "bola"
 	icon_state_preview = "bola_preview"
 	item_state = "bola"

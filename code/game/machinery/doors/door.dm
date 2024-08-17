@@ -17,6 +17,8 @@
 	interaction_flags_atom = INTERACT_ATOM_UI_INTERACT
 	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 
+	/// Door remote allow control
+	var/opens_with_door_remote = FALSE
 	/// TRUE means density will be set as soon as the door begins to close
 	var/air_tight = FALSE
 	/// How long is this door electrified for
@@ -201,8 +203,6 @@
 	add_fingerprint(user)
 	if(operating || (obj_flags & EMAGGED))
 		return
-	if(!requiresID())
-		user = null //so allowed(user) always succeeds
 	if(obj_flags & CMAGGED)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -223,7 +223,7 @@
 		else
 			open()
 		return TRUE
-	if(!allowed(user))
+	if(requiresID() && !allowed(user))
 		if(density)
 			do_animate("deny")
 		return FALSE
@@ -255,7 +255,7 @@
 /obj/machinery/door/proc/unrestricted_side(mob/M) //Allows for specific side of airlocks to be unrestrected (IE, can exit maint freely, but need access to enter)
 	return get_dir(src, M) & unres_sides
 
-/obj/machinery/door/proc/try_to_weld(obj/item/weldingtool/W, mob/user)
+/obj/machinery/door/proc/try_to_weld(obj/item/weldingtool/W, mob/living/user, list/modifiers)
 	return
 
 /obj/machinery/door/proc/try_to_crowbar(obj/item/I, mob/user)
@@ -285,21 +285,22 @@
 	density = TRUE
 	return max_moles - min_moles > 20
 
-/obj/machinery/door/attackby(obj/item/I, mob/user, params)
+/obj/machinery/door/attackby(obj/item/I, mob/living/user, params)
 	add_fingerprint(user)
 
-	if(user.a_intent != INTENT_HARM && (I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/fireaxe)))
+	var/list/modifiers = params2list(params)
+	if((!user.combat_mode || (modifiers && modifiers[RIGHT_CLICK])) && (I.tool_behaviour == TOOL_CROWBAR || istype(I, /obj/item/fireaxe))) // right click always opens
 		try_to_crowbar(I, user)
-		return 1
+		return TRUE
 	else if(istype(I, /obj/item/zombie_hand/gamemode))
 		try_to_crowbar(I, user)
 		return TRUE
 	else if(I.tool_behaviour == TOOL_WELDER)
-		try_to_weld(I, user)
-		return 1
-	else if(!(I.item_flags & NOBLUDGEON) && user.a_intent != INTENT_HARM)
+		try_to_weld(I, user, modifiers)
+		return TRUE
+	else if(!(I.item_flags & NOBLUDGEON) && !user.combat_mode)
 		try_to_activate_door(user)
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/door/take_damage(damage_amount, damage_type = BRUTE, damage_flag = 0, sound_effect = TRUE, attack_dir, armour_penetration = 0)
@@ -376,6 +377,7 @@
 	operating = FALSE
 	air_update_turf()
 	update_freelook_sight()
+	SEND_SIGNAL(src, COMSIG_ATOM_DOOR_OPEN)
 	if(autoclose)
 		spawn(autoclose)
 			close()
@@ -396,6 +398,19 @@
 	operating = TRUE
 
 	do_animate("closing")
+
+	var/turf/open/open_turf = get_turf(src)
+	if(open_turf.liquids)
+		var/datum/liquid_group/turfs_group = open_turf.liquids.liquid_group
+		turfs_group.remove_from_group(open_turf)
+		qdel(open_turf.liquids)
+		turfs_group.try_split(open_turf)
+		for(var/dir in GLOB.cardinals)
+			var/turf/open/direction_turf = get_step(open_turf, dir)
+			if(!isopenturf(direction_turf) || !direction_turf.liquids)
+				continue
+			turfs_group.check_edges(direction_turf)
+
 	layer = closingLayer
 	if(air_tight)
 		density = TRUE
@@ -442,6 +457,8 @@
 		var/turf/location = get_turf(src)
 		//add_blood doesn't work for borgs/xenos, but add_blood_floor does.
 		L.add_splatter_floor(location)
+		if(prob(1)) //no clip out of reality into the backrooms
+			INVOKE_ASYNC(L, TYPE_PROC_REF(/mob/living, clip_into_backrooms))
 	for(var/obj/mecha/M in get_turf(src))
 		M.take_damage(DOOR_CRUSH_DAMAGE)
 
@@ -461,6 +478,8 @@
 /obj/machinery/door/proc/update_freelook_sight()
 	if(!glass && GLOB.cameranet)
 		GLOB.cameranet.updateVisibility(src, 0)
+	if(!glass && GLOB.thrallnet)
+		GLOB.thrallnet.updateVisibility(src, 0)
 
 /obj/machinery/door/BlockThermalConductivity() // All non-glass airlocks block heat, this is intended.
 	if(heat_proof && density)
@@ -469,6 +488,14 @@
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
+
+/obj/machinery/door/morgue/curator
+	name = "Private Study"
+	req_access = list(ACCESS_LIBRARY)
+
+/obj/machinery/door/morgue/chaplain
+	name = "Confession Booth (Chaplain)"
+	req_access = list(ACCESS_CHAPEL_OFFICE)
 
 /obj/machinery/door/get_dumping_location(obj/item/storage/source,mob/user)
 	return null

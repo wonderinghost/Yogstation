@@ -1,8 +1,8 @@
 /datum/species/abductor
 	name = "Abductor"
-	id = "abductor"
+	id = SPECIES_ABDUCTOR
 	say_mod = "gibbers"
-	sexes = FALSE
+	possible_genders = list(PLURAL)
 	species_traits = list(NOBLOOD,NOEYESPRITES)
 	inherent_traits = list(TRAIT_VIRUSIMMUNE,TRAIT_NOGUNS,TRAIT_NOHUNGER,TRAIT_NOBREATH,TRAIT_RADIMMUNE,TRAIT_GENELESS)
 	mutanttongue = /obj/item/organ/tongue/abductor

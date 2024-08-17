@@ -100,7 +100,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	lighting_colour_tube = "#ffe5cb"
 	lighting_colour_bulb = "#ffdbb4"
 
-
 //Departments
 
 /area/maintenance/department/chapel
@@ -485,6 +484,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_WOODFLOOR
 
+/area/crew_quarters/public_lounge
+	name = "Lounge"
+	icon_state = "bar"
+	minimap_color = "#5ac866"
+	mood_bonus = 5
+	mood_message = span_nicegreen("I love being in the lounge!\n")
+	airlock_wires = /datum/wires/airlock/service
+
 /area/crew_quarters/bar/Initialize(mapload)
 	. = ..()
 	GLOB.bar_areas += src
@@ -843,7 +850,6 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/medical/morgue
 	name = "Morgue"
 	icon_state = "morgue"
-	ambience_index = AMBIENCE_SPOOKY
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/medical/chemistry
@@ -909,6 +915,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Prison Wing"
 	icon_state = "sec_prison"
 	minimap_color = "#530505"
+	lights_always_start_on = TRUE
 
 /area/security/prison/hallway
 	name = "Prison Wing Hallway"

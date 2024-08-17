@@ -13,8 +13,9 @@
 
 	alt_titles = list("Librarian", "Journalist", "Archivist", "Cartographer", "Space Archaeologist")
 
-	added_access = list()
-	base_access = list(ACCESS_LIBRARY, ACCESS_CONSTRUCTION, ACCESS_MINING_STATION)
+	added_access = list(ACCESS_MAINT_TUNNELS, ACCESS_AUX_BASE)
+	base_access = list(ACCESS_SERVICE, ACCESS_LIBRARY, ACCESS_CONSTRUCTION, ACCESS_MINING_STATION, ACCESS_EXTERNAL_AIRLOCKS)
+
 	paycheck = PAYCHECK_EASY
 	paycheck_department = ACCOUNT_CIV
 	mind_traits = list(TRAIT_BLOODSUCKER_HUNTER)
@@ -47,7 +48,7 @@
 	name = "Curator"
 	jobtype = /datum/job/curator
 
-	pda_type = /obj/item/modular_computer/tablet/pda/preset/basic/fountainpen
+	pda_type = /obj/item/modular_computer/tablet/pda/preset/fountainpen/curator
 
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/curator

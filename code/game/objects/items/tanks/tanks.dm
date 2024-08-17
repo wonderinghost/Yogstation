@@ -6,6 +6,9 @@
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BACK
 	hitsound = 'sound/weapons/smash.ogg'
+	pickup_sound = 'sound/items/gas_tank_pick_up.ogg'
+	drop_sound = 'sound/items/gas_tank_drop.ogg'
+	sound_vary = TRUE
 	pressure_resistance = ONE_ATMOSPHERE * 5
 	force = 5
 	throwforce = 10
@@ -381,11 +384,11 @@
 	if(tank_assembly)
 		tank_assembly.on_found(finder)
 
-/obj/item/tank/attack_hand() //also for mousetraps
+/obj/item/tank/attack_hand(mob/user, modifiers) //also for mousetraps
 	if(..())
 		return
 	if(tank_assembly)
-		tank_assembly.attack_hand()
+		tank_assembly.attack_hand(user, modifiers)
 
 /obj/item/tank/Move()
 	..()

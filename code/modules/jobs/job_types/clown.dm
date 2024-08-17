@@ -12,8 +12,9 @@
 
 	alt_titles = list("Entertainer", "Comedian", "Jester", "Improv Artist")
 
-	added_access = list()
-	base_access = list(ACCESS_THEATRE)
+	added_access = list(ACCESS_MAINT_TUNNELS)
+	base_access = list(ACCESS_SERVICE, ACCESS_THEATRE)
+
 	paycheck = PAYCHECK_MINIMAL
 	paycheck_department = ACCOUNT_SRV
 
@@ -45,10 +46,10 @@
 	name = "Clown"
 	jobtype = /datum/job/clown
 
-	pda_type = /obj/item/modular_computer/tablet/pda/preset/basic/clown
+	pda_type = /obj/item/modular_computer/tablet/pda/preset/clown
 
 	ears = /obj/item/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/rank/clown
+	uniform = /obj/item/clothing/under/rank/civilian/clown
 	shoes = /obj/item/clothing/shoes/clown_shoes
 	mask = /obj/item/clothing/mask/gas/clown_hat
 	l_pocket = /obj/item/bikehorn
